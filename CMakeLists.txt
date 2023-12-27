@@ -20,7 +20,7 @@ if(NOT READLINE_FOUND)
 endif()
 
 set(SHIRO_INTEP_SOURCES shiro/shiro.c shiro/argparse.c shiro/shell.c
-                        shiro/interp.c)
+                        shiro/interp.c shiro/lex.c)
 
 add_executable(shiro ${SHIRO_INTEP_SOURCES})
 target_link_libraries(shiro PRIVATE ${READLINE_LIBRARIES})
