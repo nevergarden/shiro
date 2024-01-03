@@ -63,9 +63,21 @@ void string(size_t line_len, char *line, shiro_token_t *list) {
 void number(size_t line_len, char *line, shiro_token_t *list) {
   uint8_t isHex = 0;
   uint8_t isBin = 0;
-  while (current < line_len && isdigit(line[current])) {
-    current += 1;
-    length += 1;
+
+  if (line[current] == '0' && current + 1 < line_len) {
+    if (line[current + 1] == 'x') {
+      isHex = 1;
+      current += 2;
+      length += 2;
+    } else if (line[current + 1] == 'b') {
+      isBin = 1;
+      current += 2;
+      length += 2;
+    }
+    while (current < line_len && isdigit(line[current])) {
+      current += 1;
+      length += 1;
+    }
   }
   add_token(list, TokenNumber, literal_start_pos, literal_start_pos + length);
 }

@@ -52,7 +52,9 @@ typedef enum {
   TokenXorEq,      // ^=
   TokenNeg,        // ~
   TokenAproxEq,    // ~=
-  TokenNumber,     // [0-9]+ | [0-9]+.[0-9]* | 0b[0|1]+ | 0x[0-9a-fA-F]+
+  TokenNumber,     // [0-9]+ | [0-9]+.[0-9]*
+  TokenNumberBin,  // 0b[0|1]+
+  TokenNumberHex,  // 0x[0-9a-fA-F]+
   TokenString,     // ".*" | '.*'
   TokenID,         // [$_a-zA-Z][$_a-zA-Z0-9]*
   TokenTrue,       // true
